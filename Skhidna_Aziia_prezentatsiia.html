@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Інноваційна модель Східної Азії</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@600;700;800&family=Noto+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;900&text=革新奇蹟東亞人才研究政策高度経済成長系列財閥雁行台積電廉完未来&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;900&text=한강의기적교육열재벌&display=swap" rel="stylesheet">
+<style>
+/* VOICE    live student talk for three speakers; poster-bold but scholarly
+   IDEA     an East-Asian travel poster / ink-and-gold scroll: parchment, cinnabar, gold-lined mountains, red sun
+   PICTURE  one persistent landscape behind all slides; sun, mountains and cranes move like a camera between slides
+   COLOUR   parchment #efe3c8, ink #231c18, cinnabar #b8261c, crimson #7d1d1b, gold #c9a14a
+   TYPE     Alumni Sans (tall condensed poster) + Noto Serif; Noto Serif JP/KR for real Han/Hangul accents
+   LAYOUT   fixed 16:9 stage; text in the upper field, landscape as a living footer; speaker seal top-right */
+:root{--paper:#efe3c8;--paper2:#e7d6b4;--ink:#231c18;--red:#b8261c;--crim:#7d1d1b;--gold:#c9a14a;--gold2:#e2c179;--mute:#6f5f52;color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%;margin:0}
+body{background:#17110f;color:var(--ink);font:16px/1.5 "Noto Serif",Georgia,serif;overflow:hidden}
+#vp{position:fixed;inset:0 0 64px 0}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center;overflow:hidden;background:var(--paper);box-shadow:0 30px 90px rgba(0,0,0,.55)}
+#scene{position:absolute;inset:0;width:1280px;height:720px}
+.mv{transition:transform 1.5s cubic-bezier(.65,0,.25,1),opacity 1.5s ease}
+#paper{position:absolute;inset:0;pointer-events:none;background:
+ repeating-linear-gradient(90deg,rgba(120,80,30,.05) 0 1px,transparent 1px 64px),
+ radial-gradient(ellipse at 30% 20%,rgba(255,250,235,.55),transparent 60%),
+ radial-gradient(ellipse at 80% 90%,rgba(140,70,30,.12),transparent 55%)}
+#paper::after{content:"";position:absolute;inset:0;opacity:.3;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+.frame{position:absolute;inset:14px;border:1px solid rgba(35,28,24,.55);pointer-events:none;z-index:6}
+.frame::after{content:"";position:absolute;inset:4px;border:3px solid rgba(35,28,24,.75)}
+/* slides */
+.s{position:absolute;inset:0;padding:58px 70px 40px;z-index:4;visibility:hidden;opacity:0}
+.s.on{visibility:visible;opacity:1;animation:reveal 1.25s cubic-bezier(.7,0,.2,1) both}
+.s.out{visibility:visible;opacity:0;filter:blur(6px);transform:translateY(-18px) scale(.985);transition:opacity .55s,filter .55s,transform .55s}
+@keyframes reveal{from{clip-path:circle(0% at var(--cx,90%) var(--cy,12%))}to{clip-path:circle(150% at var(--cx,90%) var(--cy,12%))}}
+#wash{position:absolute;z-index:5;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;background:radial-gradient(circle,rgba(184,38,28,.55),rgba(184,38,28,.18) 55%,transparent 70%);pointer-events:none;opacity:0;transform:scale(0)}
+#wash.go{animation:wash 1.2s ease-out}
+@keyframes wash{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(11)}}
+h2{font:800 66px/.95 "Alumni Sans",Oswald,Impact,sans-serif;text-transform:uppercase;color:var(--red);margin:0;letter-spacing:.005em;max-width:900px}
+.kick{font:600 13px Inter,Arial,sans-serif;letter-spacing:.22em;color:var(--mute);text-transform:uppercase}
+.lead{font:italic 400 21px/1.4 "Noto Serif",Georgia,serif;color:var(--ink)}
+.cap{font:400 15.5px/1.5 "Noto Serif",Georgia,serif;color:#4a3d33}
+.num{font:800 64px/.9 "Alumni Sans",Oswald,Impact,sans-serif;color:var(--red)}
+.ttl{font:700 26px/1 "Alumni Sans",Oswald,Impact,sans-serif;text-transform:uppercase;color:var(--ink);letter-spacing:.02em}
+.han{font-family:"Noto Serif JP","Noto Serif KR",serif;font-weight:900}
+.box{border:1.5px solid var(--ink);padding:16px 18px;background:rgba(250,243,226,.72);position:relative}
+.box::before{content:"";position:absolute;inset:3px;border:1px solid rgba(35,28,24,.35);pointer-events:none}
+.seal{display:inline-grid;place-items:center;background:var(--red);color:#f7ead0;border-radius:6px;box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 5px rgba(247,234,208,.85)}
+.rule{display:flex;align-items:center;gap:14px;font:600 13px Inter,Arial,sans-serif;letter-spacing:.2em;color:var(--ink)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--ink)}
+.vert{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.15em}
+.chip{position:absolute;right:62px;top:30px;display:flex;align-items:center;gap:10px;font:600 13px Inter,Arial,sans-serif;color:var(--ink);z-index:7}
+.chip .seal{width:30px;height:30px;font:800 17px "Alumni Sans",Oswald,sans-serif}
+.foot{position:absolute;left:30px;right:30px;bottom:22px;display:flex;justify-content:space-between;font:600 11px Inter,Arial,sans-serif;letter-spacing:.14em;color:rgba(35,28,24,.7);z-index:7}
+/* entrance choreography */
+.a{opacity:0;transform:translateY(20px)}
+.on .a{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*1s + .45s)}
+.st{opacity:0;transform:scale(1.9) rotate(var(--r,-8deg))}
+.on .st{opacity:1;transform:scale(1) rotate(var(--r,-8deg));transition:opacity .2s,transform .4s cubic-bezier(.3,1.6,.5,1);transition-delay:calc(var(--d,0)*1s + .5s)}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.on .draw{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s ease;transition-delay:calc(var(--d,0)*1s + .5s)}
+.grow{transform:scaleX(0);transform-origin:left}
+.on .grow{transform:scaleX(1);transition:transform 1.1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*1s + .6s)}
+@keyframes flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(-.55)}}
+@keyframes drift{from{transform:translateX(-260px)}to{transform:translateX(1500px)}}
+@keyframes fall{0%{transform:translate(0,-40px) rotate(0)}100%{transform:translate(-220px,780px) rotate(540deg)}}
+@keyframes swing{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes mist{0%,100%{transform:translateX(0)}50%{transform:translateX(60px)}}
+@keyframes glint{0%,100%{opacity:.15}50%{opacity:.9}}
+/* charts */
+.bars{display:grid;gap:9px}
+.br{display:grid;grid-template-columns:110px 1fr 62px;gap:12px;align-items:center;font:600 14px Inter,Arial,sans-serif}
+.br .t{text-align:right;color:var(--ink)}
+.br .b{height:22px;background:var(--ink);display:block}
+.br.hi .b{background:var(--red)}
+.br .v{font:800 22px "Alumni Sans",Oswald,sans-serif;color:var(--ink)}
+/* panel + controls */
+#panel{position:fixed;top:0;right:0;bottom:0;width:min(430px,92vw);background:#f6ecd6;color:var(--ink);transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:9;display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.4)}
+#panel.open{transform:none}
+#panel header{padding:20px 24px 12px;border-bottom:1px solid #d8c6a2;display:flex;justify-content:space-between;align-items:center;gap:12px}
+#panel h3{margin:0;font:800 28px "Alumni Sans",Oswald,sans-serif;text-transform:uppercase;color:var(--red)}
+#ptxt{padding:18px 26px 28px;overflow:auto;font-size:17.5px;line-height:1.7}
+#ptxt .who{font:700 14px Inter,Arial,sans-serif;color:var(--red);margin-bottom:10px}
+#ptxt p{text-indent:1.4em;margin:0;hyphens:auto}
+#panel button,#ctl button{appearance:none;cursor:pointer;font:600 14px Inter,Arial,sans-serif;height:44px;white-space:nowrap}
+#panel button{border:1px solid #cdb88f;background:#fffaf0;color:var(--ink);padding:0 16px}
+#ctl{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px;align-items:center;z-index:8;background:rgba(30,20,16,.85);padding:6px;border-radius:999px}
+#ctl button{border:0;background:transparent;color:#f3e6cc;min-width:44px;padding:0 14px;border-radius:999px}
+#ctl button:hover{background:rgba(255,255,255,.1)}
+#ctl button:focus-visible,#panel button:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+#cnt{font:600 13px Inter,Arial,sans-serif;color:#d9c7a4;min-width:58px;text-align:center;font-variant-numeric:tabular-nums}
+#prog{position:fixed;left:0;top:0;height:3px;background:var(--red);z-index:8;transition:width .6s}
+@media (max-width:600px){#ctl .lab{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.a,.st,.grow{opacity:1!important;transform:none!important}.draw{stroke-dashoffset:0!important}.s.on{clip-path:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="vp"><div id="stage">
+<svg id="scene" viewBox="0 0 1280 720" aria-hidden="true">
+  <defs>
+    <radialGradient id="gSun" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#fbf3dc"/><stop offset=".7" stop-color="#f1dfae"/><stop offset="1" stop-color="#dcc07c"/></radialGradient>
+    <radialGradient id="gRed" cx=".38" cy=".35" r=".8"><stop offset="0" stop-color="#d8442f"/><stop offset=".75" stop-color="#b8261c"/><stop offset="1" stop-color="#8f1913"/></radialGradient>
+    <linearGradient id="gFar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8a07a"/><stop offset="1" stop-color="#e1cba6"/></linearGradient>
+    <linearGradient id="gMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9472f"/><stop offset="1" stop-color="#c98f6c"/></linearGradient>
+    <linearGradient id="gNear" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8c2420"/><stop offset="1" stop-color="#6a1714"/></linearGradient>
+    <linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a24"/><stop offset="1" stop-color="#1f1714"/></linearGradient>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(201,161,74,.35)" stroke-width="1"/></pattern>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+  </defs>
+  <g id="sunP" class="mv"><circle r="170" fill="url(#gSun)"/><g id="sunTex" opacity=".35"></g></g>
+  <g id="sunR" class="mv"><circle r="70" fill="url(#gRed)"/><g id="redTex"></g></g>
+  <g id="birds"></g>
+  <g id="L0" class="mv"></g>
+  <g id="mist1" style="animation:mist 14s ease-in-out infinite"></g>
+  <g id="L1" class="mv"></g>
+  <g id="L2" class="mv"></g>
+  <g id="mist2" style="animation:mist 18s ease-in-out infinite reverse"></g>
+  <g id="L3" class="mv"></g>
+  <g id="petals"></g>
+</svg>
+<div id="paper"></div>
+<div id="wash"></div>
+<div class="frame"></div>
+
+<!-- 1 COVER -->
+<section class="s" data-pose="cover">
+  <svg class="a" style="--d:.1;position:absolute;left:58px;top:20px;width:70px;height:150px;transform-origin:35px 0;animation:swing 4s ease-in-out infinite" viewBox="0 0 70 150" id="lantern"></svg>
+  <div class="a han" style="--d:.3;position:absolute;left:66px;top:200px;font-size:34px;color:var(--red)"><span class="vert">革新奇蹟</span></div>
+  <div class="st seal han" style="--d:1.2;--r:-4deg;position:absolute;right:70px;top:52px;width:76px;height:76px;font-size:30px;line-height:1;text-align:center;padding:6px">東<br>亞</div>
+  <div style="text-align:center;margin-top:10px">
+    <div class="kick a" style="--d:.2">Доповідь · Східна Азія · 1945–2026</div>
+    <h2 class="a" style="--d:.35;max-width:none;font-size:104px;margin-top:6px">Модель інноваційного</h2>
+    <h2 class="a" style="--d:.5;max-width:none;font-size:104px">розвитку економіки</h2>
+    <div class="rule a" style="--d:.7;margin:12px 160px 0">НА ПРИКЛАДІ КРАЇН СХІДНОЇ АЗІЇ</div>
+    <div class="lead a" style="--d:.85;margin-top:8px">період після Другої світової війни</div>
+  </div>
+  <div class="box a" style="--d:1.1;position:absolute;left:70px;bottom:58px;width:330px;padding:12px 16px"><div class="kick" style="font-size:11px">Підготували</div><div id="authors" style="font:600 16px/1.45 'Noto Serif',serif;margin-top:4px"></div></div>
+</section>
+
+<!-- 2 ESSENCE -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина I · Сутність</div>
+  <h2 class="a" style="--d:.1">Сутність інноваційної моделі</h2>
+  <p class="lead a" style="--d:.25;max-width:880px;margin-top:12px">Перехід економіки від експлуатації ресурсів та дешевої праці до створення нових знань, технологій і високотехнологічного експорту.</p>
+  <svg viewBox="0 0 1140 250" style="width:1140px;height:250px;margin-top:14px" id="shift"></svg>
+</section>
+
+<!-- 3 THREE WHALES -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина I · Основа</div>
+  <h2 class="a" style="--d:.1">Три кити розвитку</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:30px" id="whales"></div>
+</section>
+
+<!-- 4 POSTWAR -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина I · 1945 – 1950-ті</div>
+  <h2 class="a" style="--d:.1">Післявоєнний поділ</h2>
+  <p class="lead a" style="--d:.2;margin-top:8px">Кінець Другої світової, початок холодної війни, зруйнована інфраструктура та бідність.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:22px" id="split"></div>
+</section>
+
+<!-- 5 PEOPLE -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина I · Ставка на інтелект</div>
+  <h2 class="a" style="--d:.1">Ресурсів немає — є люди</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:34px;margin-top:30px;align-items:start">
+    <div class="a" style="--d:.3"><div class="num" style="font-size:96px">$158</div><div class="ttl" style="margin-top:6px">ВВП на душу, Корея, 1960</div><p class="cap" style="margin-top:6px">у поточних доларах, Світовий банк</p></div>
+    <div class="a" style="--d:.5"><div class="num" style="font-size:96px">56%</div><div class="ttl" style="margin-top:6px">корейців 25–64 з вищою освітою</div><p class="cap" style="margin-top:6px">середнє по ОЕСР — близько 42% (OECD, 2024)</p></div>
+    <div class="box a" style="--d:.7"><div class="han" style="font-size:40px;color:var(--red)">교육열</div><div class="ttl" style="margin:4px 0 8px">«Освітня лихоманка»</div><p class="cap">Брак нафти, газу й землі змусив зробити ставку на інтелект і технології. Плюс західні інвестиції: регіон був форпостом холодної війни.</p></div>
+  </div>
+</section>
+
+<!-- 6 JAPAN / FLYING GEESE -->
+<section class="s" data-pose="mid">
+  <div class="kick a">Частина II · Диво · 1955–1973</div>
+  <h2 class="a" style="--d:.1">Японія відкриває «диво»</h2>
+  <div style="display:grid;grid-template-columns:330px 1fr;gap:30px;margin-top:20px">
+    <div>
+      <div class="a" style="--d:.3;display:flex;align-items:baseline;gap:12px"><span class="num" style="font-size:100px">≈10%</span><span class="cap">середнє зростання ВВП на рік</span></div>
+      <p class="cap a" style="--d:.45;margin-top:10px"><b>MITI</b> визначає пріоритетні галузі та роздає дозволи на іноземні технології. <b>Кейрецу</b> об'єднуються навколо банків.</p>
+      <div class="han a" style="--d:.6;font-size:30px;color:var(--red);margin-top:14px">高度経済成長</div>
+      <div class="cap a" style="--d:.65;font-size:13px">«період високого економічного зростання»</div>
+    </div>
+    <div><svg viewBox="0 0 760 330" style="width:100%;height:330px" id="geese"></svg><div class="cap a" style="--d:1.6;font-style:italic;font-size:13.5px">Модель «летючих гусей» (雁行, К. Акамацу): лідер передає галузі тим, хто летить слідом.</div></div>
+  </div>
+</section>
+
+<!-- 7 INDUSTRIALISATION -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина II · 1960–1970-ті</div>
+  <h2 class="a" style="--d:.1">Індустріалізація на експорт</h2>
+  <svg viewBox="0 0 1140 380" style="width:1140px;height:380px;margin-top:12px" id="steps"></svg>
+</section>
+
+<!-- 8 CHAEBOL vs KEIRETSU -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина II · 1980-ті</div>
+  <h2 class="a" style="--d:.1">Технологічний ривок</h2>
+  <p class="lead a" style="--d:.2;margin-top:6px">Копіювати стало мало: зростають витрати на власні наукові розробки, з'являються світові гіганти.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:16px">
+    <div class="box a" style="--d:.35;display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center"><svg viewBox="0 0 200 200" width="200" height="200" id="chaebol"></svg><div><div class="ttl">Чеболі · Корея</div><div class="han" style="font-size:24px;color:var(--red);margin:4px 0">재벌 · 財閥</div><p class="cap">Samsung, Hyundai, LG. Контроль родини засновника, дешеві держкредити в обмін на експорт.</p></div></div>
+    <div class="box a" style="--d:.55;display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center"><svg viewBox="0 0 200 200" width="200" height="200" id="keiretsu"></svg><div><div class="ttl">Кейрецу · Японія</div><div class="han" style="font-size:24px;color:var(--red);margin:4px 0">系列</div><p class="cap">Sony, Toyota, Mitsubishi. Група навколо банку з перехресним володінням акціями.</p></div></div>
+  </div>
+</section>
+
+<!-- 9 GDP CHART -->
+<section class="s" data-pose="low">
+  <div class="kick a">Частина II · Результат</div>
+  <h2 class="a" style="--d:.1">Диво на річці Хан</h2>
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:30px;margin-top:10px">
+    <div><div class="cap a" style="--d:.2">ВВП на душу населення Південної Кореї, поточні дол. США (Світовий банк)</div><svg viewBox="0 0 800 400" style="width:100%;height:400px" id="gdp"></svg></div>
+    <div style="padding-top:20px">
+      <div class="num a" style="--d:1;font-size:120px">×229</div>
+      <p class="cap a" style="--d:1.2;margin-top:6px">з $158 у 1960 до $36 239 у 2024. Без інфляції — майже ×30 (з $1 200 до $33 000).</p>
+      <div class="han a" style="--d:1.4;font-size:30px;color:var(--red);margin-top:14px">한강의 기적</div>
+      <p class="cap a" style="--d:1.5;font-size:13.5px">Світовий банк, 2024: «суперзірка зростання», що уникнула пастки середнього доходу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CRISIS 1997 -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина II · Урок</div>
+  <h2 class="a" style="--d:.1">Криза 1997 року</h2>
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;margin-top:20px">
+    <div>
+      <svg viewBox="0 0 560 250" style="width:100%;height:250px" id="crash"></svg>
+      <div class="cap a" style="--d:1.4;font-style:italic;font-size:13px">Схема: падіння і відновлення, без масштабу</div>
+    </div>
+    <div style="display:grid;gap:18px">
+      <div class="a" style="--d:.4;display:flex;gap:16px;align-items:baseline"><span class="num">$58</span><span class="cap"><b>млрд</b> — пакет допомоги на чолі з МВФ для Кореї</span></div>
+      <div class="a" style="--d:.6;display:flex;gap:16px;align-items:baseline"><span class="num">3,5</span><span class="cap"><b>млн корейців</b> віддали золото в кампанії порятунку країни</span></div>
+      <div class="box a" style="--d:.8"><div class="ttl" style="color:var(--red)">Урок</div><p class="cap" style="margin-top:6px">Короткі валютні борги чеболів обвалили валюту. Реформи: банки, скорочення боргів, банкрутство Daewoo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CHIPS -->
+<section class="s" data-pose="mid">
+  <div class="kick a">Частина III · 1990–2010-ті</div>
+  <h2 class="a" style="--d:.1">Глобалізація і чипи</h2>
+  <div style="display:grid;grid-template-columns:1fr 360px;gap:36px;margin-top:16px">
+    <div>
+      <p class="lead a" style="--d:.2">1991: кінець холодної війни, відкриті ринки, стрімкий розвиток ІТ.</p>
+      <div class="a" style="--d:.4;display:flex;gap:18px;align-items:baseline;margin-top:20px"><span class="num" style="font-size:110px">69,9%</span><span class="cap">ринку контрактного виробництва чипів у TSMC, 2025 (TrendForce)</span></div>
+      <p class="cap a" style="--d:.6;margin-top:12px;max-width:520px">Тайвань і Південна Корея — світові лідери в напівпровідниках, мікроелектроніці, смартфонах і автомобілях: TSMC, Samsung, SK Hynix, Hyundai.</p>
+    </div>
+    <div style="position:relative"><svg viewBox="0 0 340 340" width="340" height="340" id="wafer"></svg><div class="st seal han" style="--d:1.3;--r:-6deg;position:absolute;left:-30px;top:-10px;width:70px;height:96px;font-size:24px;line-height:1.05;text-align:center;padding:6px">台<br>積<br>電</div></div>
+  </div>
+</section>
+
+<!-- 12 SINGAPORE -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина III · Сінгапур</div>
+  <h2 class="a" style="--d:.1">Хаб із нульовою толерантністю до корупції</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:20px;align-items:start">
+    <svg viewBox="0 0 540 280" style="width:100%;height:280px" id="port"></svg>
+    <div style="position:relative">
+      <div class="a" style="--d:.4;display:flex;gap:18px;align-items:baseline"><span class="num" style="font-size:110px;white-space:nowrap">№3</span><span class="cap">місце у світі, індекс сприйняття корупції 2025, <b>84/100</b></span></div>
+      <p class="cap a" style="--d:.6;margin-top:12px">Бюро розслідування корупційних практик працює з 1952 року. Фінансовий, логістичний та інноваційний хаб без природних ресурсів.</p>
+      <div class="st seal han" style="--d:1.1;--r:-7deg;position:absolute;right:10px;top:120px;width:86px;height:86px;font-size:52px">廉</div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 INDUSTRY 4.0 -->
+<section class="s" data-pose="low">
+  <div class="kick a">Частина III · 2020-ті</div>
+  <h2 class="a" style="--d:.1">Індустрія 4.0 у цифрах</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:22px">
+    <div><div class="ttl a" style="--d:.2">Витрати на R&amp;D, % ВВП, 2024</div><div class="bars" id="rd" style="margin-top:14px"></div><div class="cap a" style="--d:1.2;font-size:12.5px;margin-top:8px">Корея — 2-га у світі після Ізраїлю; ~80% коштів дає бізнес. Джерело: NISTEP / Herald</div></div>
+    <div><div class="ttl a" style="--d:.3">Роботів на 10 тис. працівників</div><div class="bars" id="rb" style="margin-top:14px"></div><div class="cap a" style="--d:1.3;font-size:12.5px;margin-top:8px">IFR, World Robotics 2024 (дані за 2023)</div></div>
+  </div>
+  <div class="rule a" style="--d:1.4;margin-top:18px">ШІ · РОБОТОТЕХНІКА · БІОТЕХ · ЗЕЛЕНА ЕНЕРГЕТИКА</div>
+</section>
+
+<!-- 14 CHALLENGES -->
+<section class="s" data-pose="up">
+  <div class="kick a">Частина III · Виклики</div>
+  <h2 class="a" style="--d:.1">Війни чипів і старіння</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:22px">
+    <div class="box a" style="--d:.3"><div class="ttl" style="color:var(--red)">Війни чипів</div><p class="cap" style="margin-top:8px">Експортні обмеження США щодо Китаю, переформатування глобальних ланцюгів постачання. TSMC будує заводи у США та Японії.</p><svg viewBox="0 0 480 120" style="width:100%;height:120px;margin-top:8px" id="chain"></svg></div>
+    <div class="box a" style="--d:.5"><div class="ttl" style="color:var(--red)">Демографія Кореї</div><p class="cap" style="margin-top:8px">Народжуваність, дітей на жінку. Для відтворення населення потрібно 2,1.</p><div id="tfr" style="margin-top:10px"></div><p class="cap" style="font-size:13px;margin-top:8px">Відповідь — максимальна автоматизація виробництва.</p></div>
+  </div>
+</section>
+
+<!-- 15 CONCLUSION -->
+<section class="s" data-pose="cover2">
+  <div class="kick a" style="text-align:center">Висновок · 1945–2026</div>
+  <h2 class="a" style="--d:.15;text-align:center;max-width:none;font-size:150px;line-height:.85">80 років</h2>
+  <p class="lead a" style="--d:.35;text-align:center;max-width:880px;margin:10px auto 0">від бідних аграрно-індустріальних територій до головних центрів світових інновацій</p>
+  <div class="a" style="--d:.55;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px 40px 0">
+    <div class="box" style="padding:12px 16px"><div class="ttl" style="color:var(--red)">Освіта</div><div class="cap" style="font-size:14px">людський капітал як головний ресурс</div></div>
+    <div class="box" style="padding:12px 16px"><div class="ttl" style="color:var(--red)">Наука + бізнес</div><div class="cap" style="font-size:14px">R&amp;D і експорт як мірило успіху</div></div>
+    <div class="box" style="padding:12px 16px"><div class="ttl" style="color:var(--red)">Сильна держава</div><div class="cap" style="font-size:14px">політика з вимогою результату, без корупції</div></div>
+  </div>
+  <div class="st seal han" style="--d:1.3;--r:-6deg;position:absolute;right:76px;top:64px;width:80px;height:80px;font-size:48px">完</div>
+</section>
+
+<div class="chip" id="chip"><span class="seal" id="chipN">I</span><span id="chipT"></span></div>
+<div class="foot"><span>МОДЕЛЬ ІННОВАЦІЙНОГО РОЗВИТКУ · СХІДНА АЗІЯ</span><span id="pg">1 / 15</span></div>
+</div></div>
+
+<div id="ctl">
+  <button id="prev" aria-label="Попередній слайд">←</button>
+  <span id="cnt">1 / 15</span>
+  <button id="next" aria-label="Наступний слайд">→</button>
+  <button id="txt" aria-expanded="false"><span>Текст</span><span class="lab"> доповіді</span></button>
+  <button id="fs" aria-label="Повний екран">⛶</button>
+</div>
+<aside id="panel" aria-label="Текст доповіді">
+  <header><h3>Текст доповіді</h3><button id="pclose">Закрити</button></header>
+  <div id="ptxt"></div>
+</aside>
+
+<script>
+{
+const NAMES = [{"full": "Феофанова Вероніка", "short": "Вероніка"}, {"full": "Захар'єна Кіра", "short": "Кіра"}, {"full": "Пашковська Юлія", "short": "Юлія"}];
+const SPEECH = [{"sp": 0, "t": "Добрий день. Тема нашої доповіді — модель інноваційного розвитку економіки на прикладі країн Східної Азії після Другої світової війни. Ідеться насамперед про Японію, Південну Корею, Тайвань і Сінгапур: країни, які за життя двох-трьох поколінь пройшли шлях від бідності й руїн до світового технологічного лідерства. Доповідь складається з трьох частин. Я розповім, що таке інноваційна модель і з якими стартовими умовами ці країни входили в повоєнний світ. Кіра пояснить, як відбулося «східноазійське економічне диво». Юлія розповість про глобалізацію, сучасний етап і зробить висновки."}, {"sp": 0, "t": "Почнемо із суті. Інноваційна модель — це перехід економіки від експлуатації природних ресурсів і дешевої праці до створення нових знань, технологій і високотехнологічного експорту. У традиційній моделі країна заробляє тим, що в неї є: нафтою, рудою, лісом або дешевою робочою силою. Така модель швидко впирається в стелю. Ресурси вичерпуються, зарплати зростають, ціни на сировину скачуть, і країна залежить від чужих рішень. В інноваційній моделі головним джерелом доходу стає те, що країна вміє: розробляти, вдосконалювати й продавати технології. Цінність створюють знання працівника, тому таку економіку часто називають економікою знань. Саме цей перехід і зробили країни Східної Азії. Варто розуміти й ціну такого переходу: він вимагає десятиліть терпіння, бо інвестиції в освіту й науку окуповуються не за рік і не за два."}, {"sp": 0, "t": "Інноваційна модель тримається на трьох китах. Перший — людський капітал: інвестиції в освіту, від масової грамотності до сильних інженерних університетів. Другий — масштабне фінансування науки й досліджень, тобто R&D, або, як у нас кажуть, НДДКР. Третій — цілеспрямована державна економічна політика. Держава визначає пріоритетні галузі, дає дешеві кредити, захищає молоді виробництва й водночас вимагає від них результату, насамперед експорту. Важливо, що жоден із китів не працює окремо. Освіта без науки призводить до еміграції інженерів. Наука без промисловості лишається в лабораторіях. Державна політика без перших двох перетворюється на роздачу грошей. У Східній Азії спрацювали всі три одночасно. Ще одна деталь: у Східній Азії держава уважно вимірювала результат своєї підтримки. Компанія, яка отримала пільговий кредит, мусила показати зростання експорту, інакше підтримку припиняли. Саме цей принцип, підтримка в обмін на результат, відрізняє успішну промислову політику від корупційної."}, {"sp": 0, "t": "Тепер про стартові умови. 1945 рік: закінчується Друга світова війна, починається холодна, і світ ділиться на два табори. Японія капітулює і до 1952 року перебуває під американською окупацією. Корейський півострів розділено по 38-й паралелі, і в 1948 році на півдні утворюється Республіка Корея; невдовзі країну спустошить Корейська війна. У 1949 році уряд Гоміньдану, програвши громадянську війну в Китаї, переїжджає на Тайвань. Сінгапур здобуває незалежність останнім, у 1965 році, на хвилі деколонізації. Спільне в усіх чотирьох — зруйнована інфраструктура, бідність і дуже нервове геополітичне сусідство. Жоден економіст тоді не назвав би цей регіон майбутнім центром світових інновацій."}, {"sp": 0, "t": "І ще одна спільна риса: природних ресурсів майже немає. Ні нафти, ні газу у великих обсягах, мало придатної для сільського господарства землі. За даними Світового банку, у 1960 році ВВП на душу населення Південної Кореї становив близько 158 доларів. Тому ставку зробили на єдиний ресурс, який можна наростити, — на людей. У корейській мові навіть є окреме слово «кьоюкйоль», освітня лихоманка: родини вкладають у навчання дітей усе, що мають. Результат видно сьогодні: за даними ОЕСР, вищу освіту має 56% корейців віком від 25 до 64 років, тоді як у середньому по країнах ОЕСР — близько 42%. Додайте до цього західні інвестиції та допомогу, адже під час холодної війни ці країни були форпостом проти комунізму. Про те, як на цьому фундаменті виросло економічне диво, розповість Кіра. Для порівняння: у той самий час багато країн Африки та Латинської Америки мали значно більше природних багатств, але саме бідна на ресурси Східна Азія згодом обігнала їх за рівнем доходу."}, {"sp": 1, "t": "Дякую. Першою диво показала Японія. З середини 1950-х років до нафтової кризи 1973 року її економіка зростала в середньому майже на 10% на рік. Японці називають цей час періодом високого економічного зростання. Ключову роль відіграло Міністерство зовнішньої торгівлі та промисловості, MITI: воно визначало пріоритетні галузі, розподіляло валюту й дозволи на купівлю іноземних технологій. Великі промислові групи, кейрецу, об'єднувалися навколо банків і працювали як єдиний організм. Японський економіст Канаме Акамацу описав регіональну динаміку моделлю «летючих гусей». Попереду летить лідер, Японія. За нею вишиковуються Корея, Тайвань, Сінгапур і Гонконг, які переймають галузі, з яких лідер уже виходить, і так поступово піднімаються технологічними сходами."}, {"sp": 1, "t": "У 1960–70-х роках «азійські тигри» пішли японським шляхом. Головним рішенням стала орієнтація на експорт: країни почали виробляти для світового ринку, а успіх на ньому став мірилом ефективності для кожної компанії. Південна Корея з 1962 року жила за п'ятирічними планами економічного розвитку. Технології спочатку копіювали й адаптували: купували ліцензії, розбирали західні зразки, вчилися на чужих заводах. Від легкої промисловості — текстилю, взуття, іграшок — перейшли до важкої: металургії, суднобудування, хімії. У 1968 році засновано металургійний комбінат POSCO, на початку 1970-х Hyundai будує суднобудівну верф. Логіка проста й послідовна: скопіювати, адаптувати, експортувати, а потім удосконалити. Важливо, що копіювання було лише першим етапом. Інженери, які навчилися відтворювати чужі технології, згодом почали їх покращувати, а потім і створювати власні. Окремо варто відзначити роль держави як гаранта кредитів: банки фінансували пріоритетні галузі під державні програми."}, {"sp": 1, "t": "У 1980-х настав технологічний ривок. Копіювання перестало працювати, бо Захід уже неохоче продавав найкращі технології майбутнім конкурентам. Тому стрімко зросли витрати на власні наукові розробки, причому основну частину давав бізнес. Так з'явилися світові технологічні гіганти. У Кореї це чеболі — родинні конгломерати на кшталт Samsung, Hyundai чи LG, які отримували від держави дешеві кредити в обмін на експортні результати. У Японії — кейрецу, групи компаній навколо банку з перехресним володінням акціями, як Sony, Toyota чи Mitsubishi. Головна різниця у структурі: чеболь контролює родина засновника, а кейрецу тримається на банку та взаємних пакетах акцій. Саме в цей період Samsung почала виробляти мікросхеми пам'яті, а згодом стала світовим лідером у цьому сегменті. Японські та корейські бренди, які в 1960-х асоціювалися з дешевими копіями, у 1980-х стали синонімом якості."}, {"sp": 1, "t": "Наскільки великим було диво, видно на графіку. ВВП на душу населення Південної Кореї у поточних доларах зріс зі 158 доларів у 1960 році до понад 36 тисяч у 2024-му, тобто приблизно у 229 разів. Якщо прибрати інфляцію, Світовий банк оцінює зростання з 1 200 до 33 тисяч доларів, тобто майже в 30 разів. Це явище називають «дивом на річці Хан». Світовий банк у доповіді про розвиток світу за 2024 рік назвав Корею «суперзіркою зростання», яка уникнула пастки середнього доходу. Ця пастка спіткала багато країн: вони розбагатіли на дешевій праці, а далі застрягли, бо не змогли перейти до технологій. Зверніть увагу на позначку кризи 1997 року на графіку: навіть серйозний удар лише ненадовго зупинив зростання."}, {"sp": 1, "t": "Проте диво не було безхмарним. У 1997 році Азію накрила фінансова криза. Компанії, зокрема корейські чеболі, набрали забагато коротких валютних боргів, і коли іноземний капітал почав тікати, національні валюти обвалилися. Корея отримала пакет допомоги на чолі з МВФ приблизно на 58 мільярдів доларів. Під час кампанії зі збору золота близько трьох із половиною мільйонів корейців віддали власні прикраси, щоб допомогти країні розрахуватися з боргами. Після кризи провели болючі реформи: реструктуризували банки, змусили чеболі скоротити борги, а один із найбільших, Daewoo, збанкрутував. Урок такий: державна підтримка великих компаній працює лише за жорсткого контролю за їхніми боргами. Про те, як Азія після кризи стала технологічним лідером, розповість Юлія."}, {"sp": 2, "t": "Дякую. 1990–2010-ті роки — епоха глобалізації. Холодна війна закінчилася у 1991 році, світові ринки відкрилися, почався стрімкий розвиток ІТ, і Східна Азія опинилася в потрібному місці в потрібний час. Найкращий приклад — напівпровідники. Тайванська компанія TSMC, створена у 1987 році за участі державного Інституту промислових технологій, запропонувала нову бізнес-модель: контрактне виробництво чипів за чужими розробками для Apple, Nvidia, AMD та інших. За даними TrendForce, у 2025 році TSMC контролювала майже 70% світового ринку контрактного виробництва чипів. Південна Корея тим часом стала лідером у виробництві пам'яті, смартфонів і автомобілів: Samsung, SK Hynix, Hyundai. Окремо варто сказати про Японію: саме в ці роки її компанії стали глобальними брендами в електроніці й автомобілебудуванні, а Тайвань і Корея перетворилися з виконавців чужих замовлень на розробників власних продуктів."}, {"sp": 2, "t": "Сінгапур пішов власним шляхом і перетворився на провідний світовий фінансовий, логістичний та інноваційний хаб. Острів без ресурсів, навіть без достатніх запасів питної води, зробив ставку на ефективну державу. Ключовий елемент — нульова толерантність до корупції. Бюро розслідування корупційних практик працює з 1952 року, а в індексі сприйняття корупції Transparency International за 2025 рік Сінгапур посідає третє місце у світі з результатом 84 бали зі 100. Для іноземного інвестора це означає просте правило: контракти виконуються, суди працюють, хабарі не потрібні. Тому саме сюди переносять регіональні штаб-квартири транснаціональні компанії та капітал. Цікаво, що Сінгапур з самого початку свідомо залучав іноземні компанії: Рада економічного розвитку, створена у 1961 році, шукала інвесторів по всьому світу й пропонувала їм готову інфраструктуру та кваліфіковані кадри."}, {"sp": 2, "t": "Сьогодні фокус — індустрія 4.0: штучний інтелект, робототехніка, біотехнології та зелена енергетика. Подивіться на цифри. За витратами на дослідження й розробки у відсотках від ВВП Південна Корея — друга у світі: 5,13% у 2024 році. Для порівняння, у США та Японії — по 3,44%, у Китаї — 2,69%, у середньому по ЄС — 2,13%. Майже 80% цих коштів вкладає бізнес. За щільністю промислових роботів Корея перша у світі: 1 012 роботів на 10 тисяч працівників. Сінгапур другий із 770 роботами. Японія, яка колись відкрила цю гонку, має 419, а США — 295. Ці цифри показують, що інноваційна модель продовжує працювати: країни, які першими зробили ставку на технології, і сьогодні інвестують у них найбільше."}, {"sp": 2, "t": "Водночас з'явилися нові геоекономічні виклики. Перший — «війни чипів». Напівпровідники стали стратегічним товаром, США обмежують експорт передових технологій до Китаю, а глобальні ланцюги постачання переформатовуються: TSMC будує заводи у США та Японії. Для Тайваню це питання одночасно економіки й безпеки. Другий виклик — демографія. Сумарний коефіцієнт народжуваності в Кореї у 2023 році впав до історичного мінімуму: 0,72 дитини на жінку. У 2025 році він трохи підріс, до 0,8, але для простого відтворення населення потрібно 2,1. Відповідь Східної Азії — максимальна автоматизація. Менше працівників означає більше роботів, тому ці країни й лідирують за щільністю роботизації. Окрім того, зростає конкуренція з боку Китаю, який сам рухається тим самим шляхом, що колись пройшли Японія та Корея."}, {"sp": 2, "t": "Отже, висновки. За 80 років, з 1945-го до 2026-го, країни Східної Азії пройшли шлях від бідних аграрно-індустріальних територій до головних центрів світових інновацій. Їхній досвід показує: відсутність природних ресурсів не є перешкодою для процвітання, якщо держава, бізнес і суспільство інвестують в освіту, науку та відкриту конкурентну економіку. Для України з цього досвіду випливають три уроки: ставка на людський капітал, послідовна промислова політика з чіткою вимогою результату і нульова толерантність до корупції. Дякуємо за увагу. Готові відповісти на ваші запитання."}];
+const R="#b8261c", K="#231c18", G="#c9a14a", P="#efe3c8", CR="#7d1d1b";
+let seed=11; const rnd=()=>((seed=seed*16807%2147483647)-1)/2147483646;
+const $=id=>document.getElementById(id);
+
+/* ---------- scene: mountains ---------- */
+function layer(id,W,base,amp,gap,fill,goldA,veins,sharp){
+  const pk=[]; let x=-60;
+  while(x<W+120){pk.push([x, base-amp*(.35+rnd()*.65)]); x+=gap*(.6+rnd()*.9)}
+  let d=`M${pk[0][0]} 900 L${pk[0][0]} ${pk[0][1].toFixed(1)}`, top=`M${pk[0][0]} ${pk[0][1].toFixed(1)}`;
+  for(let i=0;i<pk.length-1;i++){
+    const [ax,ay]=pk[i],[bx,by]=pk[i+1], vx=ax+(bx-ax)*(.35+rnd()*.3), vy=Math.max(ay,by)+amp*(.04+rnd()*.22);
+    const sx=ax+(vx-ax)*.45, sy=ay+(vy-ay)*.55+ (rnd()-.5)*amp*.15, tx=bx-(bx-vx)*.45, ty=by+(vy-by)*.55+(rnd()-.5)*amp*.15;
+    const seg=` L${(ax+(sx-ax)*.5).toFixed(1)} ${(ay+(sy-ay)*.42).toFixed(1)} Q${sx.toFixed(1)} ${sy.toFixed(1)} ${vx.toFixed(1)} ${vy.toFixed(1)} Q${tx.toFixed(1)} ${ty.toFixed(1)} ${(bx-(bx-tx)*.5).toFixed(1)} ${(by+(ty-by)*.42).toFixed(1)} L${bx.toFixed(1)} ${by.toFixed(1)}`;
+    d+=seg; top+=seg;
+  }
+  d+=` L${pk[pk.length-1][0]} 900Z`;
+  let s=`<path d="${d}" fill="${fill}"/><path d="${top}" fill="none" stroke="${G}" stroke-width="1.6" opacity="${goldA}"/>`;
+  for(let v=0;v<veins;v++){
+    const [px,py]=pk[1+Math.floor(rnd()*(pk.length-2))]; let vd=`M${px.toFixed(1)} ${py.toFixed(1)}`, cx=px, cy=py; const dir=rnd()<.5?-1:1;
+    for(let k=0;k<4;k++){const nx=cx+dir*(14+rnd()*26), ny=cy+20+rnd()*22; vd+=` Q${(cx+dir*4).toFixed(1)} ${(ny-4).toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`; cx=nx; cy=ny}
+    s+=`<path d="${vd}" fill="none" stroke="${G}" stroke-width="1" opacity="${goldA*.6}"/>`;
+  }
+  $(id).innerHTML=s;
+}
+const W=2900;
+layer("L0",W,360,120,170,"url(#gFar)",.55,26,.2);
+layer("L1",W,450,110,150,"url(#gMid)",.75,34,.25);
+layer("L2",W,545,95,130,"url(#gNear)",.9,40,.2);
+layer("L3",W,640,60,110,"url(#gFront)",.7,16,.3);
+/* pines + pagoda + gold dust on front layer */
+{
+  let s="";
+  const pine=(x,y,h,sc)=>{let t=`<g transform="translate(${x},${y}) scale(${sc})"><path d="M0 0 C 6 -${h*.3} -8 -${h*.6} 4 -${h}" stroke="#1a1210" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+    [[-30,-h*.55,46],[18,-h*.7,40],[-12,-h*.92,52],[26,-h*.42,34]].forEach(([dx,dy,w])=>{t+=`<ellipse cx="${dx}" cy="${dy}" rx="${w}" ry="${w*.28}" fill="#4a3a1e"/><ellipse cx="${dx}" cy="${dy-3}" rx="${w*.9}" ry="${w*.18}" fill="${G}" opacity=".75"/>`;
+      for(let k=0;k<6;k++) t+=`<circle cx="${dx+(rnd()-.5)*w*1.6}" cy="${dy-4+(rnd()-.5)*8}" r="${1+rnd()*1.5}" fill="#f0d68a" opacity=".9"/>`});
+    return t+`</g>`};
+  [[120,640,210,.9],[230,655,170,.8],[1250,650,200,.9],[1480,660,180,.8],[2050,650,210,.9],[2500,655,190,.85]].forEach(a=>s+=pine(...a));
+  // pagoda
+  const pg=(x,y)=>{let t=`<g transform="translate(${x},${y})">`;
+    t+=`<rect x="-62" y="-6" width="124" height="10" fill="#1a1210"/><rect x="-50" y="-60" width="100" height="56" fill="${CR}"/>`;
+    for(let i=-40;i<=40;i+=20) t+=`<rect x="${i-3}" y="-60" width="6" height="56" fill="#5a1210"/>`;
+    t+=`<rect x="-50" y="-36" width="100" height="5" fill="${G}"/>`;
+    const roof=(w,yy)=>`<path d="M${-w} ${yy} Q${-w*.55} ${yy-8} ${-w*.42} ${yy-22} L${w*.42} ${yy-22} Q${w*.55} ${yy-8} ${w} ${yy} Q${w*.7} ${yy-4} ${w*.5} ${yy-4} L${-w*.5} ${yy-4} Q${-w*.7} ${yy-4} ${-w} ${yy}Z" fill="#2b1d18" stroke="${G}" stroke-width="1.5"/>`;
+    t+=roof(84,-58);
+    t+=`<rect x="-36" y="-118" width="72" height="42" fill="${CR}"/><rect x="-36" y="-100" width="72" height="4" fill="${G}"/>`;
+    for(let i=-24;i<=24;i+=16) t+=`<rect x="${i-2}" y="-118" width="4" height="42" fill="#5a1210"/>`;
+    t+=roof(64,-114)+`<rect x="-3" y="-166" width="6" height="36" fill="${G}"/><circle cx="0" cy="-168" r="5" fill="${G}"/>`;
+    [-60,60].forEach(lx=>t+=`<g style="transform-origin:${lx}px -58px;animation:swing 3s ease-in-out infinite"><line x1="${lx}" y1="-58" x2="${lx}" y2="-44" stroke="${G}"/><ellipse cx="${lx}" cy="-36" rx="7" ry="9" fill="${R}"/></g>`);
+    return t+`</g>`};
+  s+=pg(1010,640);
+  for(let k=0;k<70;k++) s+=`<circle cx="${(rnd()*W).toFixed(0)}" cy="${(600+rnd()*110).toFixed(0)}" r="${(0.8+rnd()*1.8).toFixed(1)}" fill="#f0d68a" style="animation:glint ${2+rnd()*3}s ease-in-out ${(rnd()*3).toFixed(1)}s infinite"/>`;
+  $("L3").insertAdjacentHTML("beforeend",s);
+}
+/* mist */
+{
+  const m=(y,n)=>{let s="";for(let i=0;i<n;i++) s+=`<ellipse cx="${rnd()*1400-60}" cy="${y+rnd()*30}" rx="${160+rnd()*160}" ry="${16+rnd()*12}" fill="#f6ead0" opacity="${.35+rnd()*.25}"/>`;return s};
+  $("mist1").innerHTML=m(420,7); $("mist2").innerHTML=m(560,6);
+}
+/* sun textures */
+{
+  let s="";for(let i=0;i<9;i++){s+=`<path d="M${-150+rnd()*60} ${-120+i*30} q ${80+rnd()*60} ${-12} ${200+rnd()*80} 4" stroke="#c9a14a" stroke-width="${1+rnd()*2}" fill="none"/>`} $("sunTex").innerHTML=s;
+  let r="";for(let i=0;i<6;i++){r+=`<path d="M${-60+rnd()*20} ${-40+i*16} q 40 -6 ${90+rnd()*30} 2" stroke="#e86a4e" stroke-width="2" fill="none" opacity=".45"/>`} $("redTex").innerHTML=r;
+}
+/* cranes */
+{
+  const bird=(x,y,sc,dl)=>`<g transform="translate(${x},${y}) scale(${sc})"><g style="animation:flap ${0.9+rnd()*.4}s ease-in-out ${dl}s infinite;transform-origin:0 0"><path d="M-22 -2 Q-10 -12 0 0 Q10 -12 22 -2 Q10 -6 0 3 Q-10 -6 -22 -2Z" fill="${K}"/></g></g>`;
+  let s=`<g style="animation:drift 46s linear infinite">`;
+  [[0,0,1],[40,-18,.8],[78,8,.9],[110,-30,.7],[150,-6,.75],[60,30,.6]].forEach(([x,y,sc],i)=>s+=bird(x,120+y,sc,i*.13));
+  s+=`</g><g style="animation:drift 70s linear -30s infinite">`;
+  [[0,0,.5],[22,-10,.45],[44,6,.4]].forEach(([x,y,sc],i)=>s+=bird(x,70+y,sc,i*.2));
+  $("birds").innerHTML=s+`</g>`;
+}
+/* petals */
+{
+  let s="";for(let i=0;i<14;i++){const x=200+rnd()*1200,dur=12+rnd()*10,dl=-rnd()*20;s+=`<g transform="translate(${x},0)"><path d="M0 0 q5 -6 10 0 q-5 6 -10 0z" fill="#d9534f" opacity=".75" style="animation:fall ${dur}s linear ${dl}s infinite"/></g>`}
+  $("petals").innerHTML=s;
+}
+/* lantern */
+$("lantern").innerHTML=`<line x1="35" y1="0" x2="35" y2="26" stroke="${K}" stroke-width="2"/><rect x="24" y="24" width="22" height="8" fill="${G}"/><ellipse cx="35" cy="66" rx="30" ry="36" fill="${R}"/>${[-18,-8,2,12].map(d=>`<path d="M${35+d} 32 Q${35+d*1.9} 66 ${35+d} 100" stroke="#8f1913" stroke-width="1.5" fill="none"/>`).join("")}<rect x="24" y="98" width="22" height="8" fill="${G}"/>${[28,33,38,43].map(x=>`<line x1="${x}" y1="106" x2="${x}" y2="146" stroke="${R}" stroke-width="2"/>`).join("")}<ellipse cx="25" cy="54" rx="6" ry="14" fill="#e86a4e" opacity=".5"/>`;
+
+/* ---------- slide drawings ---------- */
+// 2: shift from old to new model
+{
+  let s=`<g class="a" style="--d:.35"><rect x="0" y="20" width="430" height="200" fill="rgba(35,28,24,.06)" stroke="${K}"/><text x="24" y="58" font-family="Alumni Sans,Oswald,sans-serif" font-weight="800" font-size="30" fill="#6f5f52">СТАРА МОДЕЛЬ</text>`;
+  ["Видобуток природних ресурсів","Дешева робоча сила","Сировинний експорт"].forEach((t,i)=>{s+=`<text x="24" y="${102+i*38}" font-family="Noto Serif,serif" font-size="19" fill="#6f5f52">${t}</text><line x1="20" y1="${96+i*38}" x2="${30+t.length*9.2}" y2="${96+i*38}" stroke="${R}" stroke-width="2" class="draw" pathLength="1" style="--d:${1+i*.2}"/>`});
+  s+=`</g><path d="M455 120 C 520 70 600 170 680 120" fill="none" stroke="${R}" stroke-width="7" stroke-linecap="round" class="draw" pathLength="1" style="--d:.8"/><path d="M664 100 L690 120 L664 140" fill="none" stroke="${R}" stroke-width="7" stroke-linecap="round" class="a" style="--d:1.6"/>`;
+  s+=`<g class="a" style="--d:1.3"><rect x="710" y="20" width="430" height="200" fill="${R}"/><rect x="716" y="26" width="418" height="188" fill="none" stroke="#f3dcb0" stroke-width="1.5"/><text x="736" y="58" font-family="Alumni Sans,Oswald,sans-serif" font-weight="800" font-size="30" fill="#f7ead0">ІННОВАЦІЙНА МОДЕЛЬ</text>`;
+  ["Створення нових знань","Власні технології та R&D","Високотехнологічний експорт"].forEach((t,i)=>{s+=`<circle cx="744" cy="${96+i*38}" r="5" fill="${G}"/><text x="760" y="${102+i*38}" font-family="Noto Serif,serif" font-size="19" fill="#f7ead0">${t}</text>`});
+  $("shift").innerHTML=s+`</g>`;
+}
+// 3: three whales as seals
+{
+  const d=[["人才","Людський капітал","Інвестиції в освіту: від масової грамотності до інженерних університетів."],["研究","Наука і R&amp;D","Масштабне фінансування досліджень (НДДКР) державою та бізнесом."],["政策","Державна політика","Пріоритетні галузі, дешеві кредити, захист молодих виробництв — в обмін на експорт."]];
+  $("whales").innerHTML=d.map(([h,t,p],i)=>`<div class="box a" style="--d:${.3+i*.25};padding:26px 24px;text-align:center"><div class="st seal han" style="--d:${.6+i*.25};--r:${[-6,4,-3][i]}deg;width:120px;height:120px;font-size:46px;line-height:1.05;margin:0 auto">${h[0]}<br>${h[1]}</div><div class="num" style="font-size:44px;margin-top:16px">${["I","II","III"][i]}</div><div class="ttl" style="margin-top:6px">${t}</div><p class="cap" style="margin-top:8px">${p}</p></div>`).join("");
+}
+// 4: postwar split cards with emblems
+{
+  const em=[
+    `<circle cx="70" cy="58" r="34" fill="${R}"/>${[0,1,2].map(i=>`<path d="M10 ${96+i*9} q 15 -8 30 0 t 30 0 t 30 0 t 30 0" fill="none" stroke="${K}" stroke-width="2"/>`).join("")}`,
+    `<path d="M58 14 C 80 18 92 34 88 52 C 96 66 92 86 84 100 C 78 112 66 118 56 112 C 46 100 50 86 44 74 C 38 58 44 44 40 32 C 42 20 50 14 58 14Z" fill="${K}" opacity=".85"/><line x1="20" y1="60" x2="120" y2="60" stroke="${R}" stroke-width="3" stroke-dasharray="7 5"/><text x="96" y="54" font-family="Inter" font-weight="700" font-size="12" fill="${R}">38°</text>`,
+    `<path d="M76 12 C 92 30 94 62 84 90 C 78 106 68 116 60 112 C 52 96 50 70 56 44 C 60 28 66 16 76 12Z" fill="${K}" opacity=".85"/>${[0,1].map(i=>`<path d="M14 ${108+i*8} q 12 -6 24 0 t 24 0" fill="none" stroke="${K}" stroke-width="1.5"/>`).join("")}`,
+    `<ellipse cx="70" cy="86" rx="46" ry="16" fill="${K}" opacity=".85"/><rect x="88" y="34" width="5" height="50" fill="${R}"/><line x1="72" y1="38" x2="122" y2="38" stroke="${R}" stroke-width="4"/><line x1="118" y1="38" x2="118" y2="58" stroke="${K}" stroke-width="1.5"/><rect x="112" y="58" width="12" height="8" fill="${G}"/><rect x="40" y="60" width="26" height="12" fill="${G}"/><rect x="44" y="50" width="20" height="10" fill="${R}"/>`];
+  const d=[["1945","Японія","Капітуляція; американська окупація до 1952 р."],["1948","Південна Корея","Поділ півострова по 38-й паралелі, утворення Республіки Корея."],["1949","Тайвань","Уряд Гоміньдану відступає на острів після громадянської війни."],["1965","Сінгапур","Незалежність на хвилі деколонізації, вихід зі складу Малайзії."]];
+  $("split").innerHTML=d.map(([y,c,t],i)=>`<div class="box a" style="--d:${.3+i*.2};padding:14px 16px"><svg viewBox="0 0 140 124" width="100%" height="124">${em[i]}</svg><div class="num" style="font-size:56px;margin-top:6px">${y}</div><div class="ttl" style="margin-top:4px">${c}</div><p class="cap" style="margin-top:6px;font-size:14.5px">${t}</p></div>`).join("");
+}
+// 6: flying geese
+{
+  const g=[["Японія",120,170,1.5,R],["Корея",260,110,1.1,K],["Тайвань",270,240,1.1,K],["Гонконг",400,60,.9,K],["Сінгапур",400,290,.9,K]];
+  const crane=(x,y,sc,c)=>`<g transform="translate(${x},${y}) scale(${sc})"><path d="M-46 4 Q-22 -26 0 0 Q22 -26 46 4 Q22 -6 0 8 Q-22 -6 -46 4Z" fill="${c}"/><path d="M0 4 L-30 12" stroke="${c}" stroke-width="3"/><circle cx="-31" cy="12" r="3.5" fill="${c}"/><circle cx="-31" cy="9" r="2" fill="${R}"/><path d="M2 6 L34 14" stroke="${c}" stroke-width="2"/></g>`;
+  let s=`<path d="M120 170 L400 60 M120 170 L400 290" stroke="${G}" stroke-width="1.5" stroke-dasharray="4 6" class="draw" pathLength="1" style="--d:.4"/>`;
+  g.forEach(([n,x,y,sc,c],i)=>{s+=`<g class="a" style="--d:${.5+i*.2}">${crane(x,y,sc,c)}<text x="${x+ (i==0?-10:30)}" y="${y+ (i==0?52:36)}" font-family="Alumni Sans,Oswald,sans-serif" font-weight="800" font-size="${i?24:30}" fill="${c}">${n.toUpperCase()}</text></g>`});
+  s+=`<g class="a" style="--d:1.5"><text x="520" y="120" font-family="Noto Serif" font-style="italic" font-size="17" fill="${K}">лідер передає галузі:</text><text x="520" y="150" font-family="Noto Serif" font-size="17" fill="${K}">текстиль → сталь → судна</text><text x="520" y="178" font-family="Noto Serif" font-size="17" fill="${K}">→ електроніка → чипи</text></g>`;
+  $("geese").innerHTML=s;
+}
+// 7: steps copy → adapt → export → improve + ship
+{
+  const st=[["Копіювати","ліцензії, розбір зразків"],["Адаптувати","під свої заводи й кадри"],["Експортувати","світ як мірило успіху"],["Вдосконалювати","власні покращення й бренди"]];
+  let s=`<text x="0" y="22" font-family="Noto Serif" font-size="17" fill="${K}" class="a" style="--d:.2">1962 — перший п'ятирічний план Кореї · 1968 — POSCO · 1970-ті — верф Hyundai</text>`;
+  st.forEach(([h,t],i)=>{const x=i*285, top=250-i*42, hot=i==3;
+    s+=`<g class="a" style="--d:${.35+i*.25}"><rect x="${x}" y="${top}" width="268" height="${370-top}" fill="${hot?R:"rgba(250,243,226,.9)"}" stroke="${K}" stroke-width="1.5"/><text x="${x+252}" y="${top+46}" text-anchor="end" font-family="Alumni Sans,Oswald,sans-serif" font-weight="800" font-size="44" fill="${hot?'#f7ead0':R}" opacity=".35">${i+1}</text><text x="${x+16}" y="${top+38}" font-family="Alumni Sans,Oswald,sans-serif" font-weight="800" font-size="26" fill="${hot?'#f7ead0':R}">${h.toUpperCase()}</text><text x="${x+16}" y="${top+68}" font-family="Noto Serif" font-size="16" fill="${hot?'#f7ead0':K}">${t}</text></g>`});
+  s+=`<g class="a" style="--d:1.4"><g transform="translate(330,52)"><path d="M0 40 L300 40 L274 80 L20 80Z" fill="${K}"/><rect x="40" y="12" width="44" height="28" fill="${R}"/><rect x="88" y="18" width="44" height="22" fill="${G}"/><rect x="136" y="12" width="44" height="28" fill="#8c2420"/><rect x="184" y="18" width="44" height="22" fill="${R}"/><rect x="240" y="-14" width="36" height="54" fill="#3a2a24"/><rect x="248" y="-30" width="10" height="16" fill="${K}"/><path d="M-20 86 q 30 -8 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0" fill="none" stroke="${K}" stroke-width="1.5"/></g></g>`;
+  $("steps").innerHTML=s;
+}
+// 8: chaebol (family hub) vs keiretsu (bank network)
+{
+  const hub=(cx,cy,r,lab,col)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${col}"/><text x="${cx}" y="${cy+5}" text-anchor="middle" font-family="Inter" font-weight="700" font-size="${r>24?13:10}" fill="#f7ead0">${lab}</text>`;
+  let a="",b="";
+  const sat=[["Електр.",0],["Авто",60],["Буд.",120],["Хімія",180],["Судна",240],["Фін.",300]];
+  sat.forEach(([n,ang])=>{const x=100+Math.cos(ang*Math.PI/180)*70,y=100+Math.sin(ang*Math.PI/180)*70;a+=`<line x1="100" y1="100" x2="${x}" y2="${y}" stroke="${K}" stroke-width="2" class="draw" pathLength="1" style="--d:.6"/>`+hub(x,y,20,n,K)});
+  a+=hub(100,100,32,"РОДИНА",R);
+  const pts=sat.map(([n,ang])=>[100+Math.cos(ang*Math.PI/180)*70,100+Math.sin(ang*Math.PI/180)*70,n]);
+  pts.forEach((p,i)=>{const q=pts[(i+1)%6],r2=pts[(i+2)%6];b+=`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="${G}" stroke-width="2"/><line x1="${p[0]}" y1="${p[1]}" x2="${r2[0]}" y2="${r2[1]}" stroke="${G}" stroke-width="1" opacity=".6"/><line x1="100" y1="100" x2="${p[0]}" y2="${p[1]}" stroke="${K}" stroke-width="1.5" stroke-dasharray="3 3"/>`});
+  pts.forEach(p=>b+=hub(p[0],p[1],20,p[2],K)); b+=hub(100,100,32,"БАНК",R);
+  $("chaebol").innerHTML=a; $("keiretsu").innerHTML=b;
+}
+// 9: GDP chart
+{
+  const d=[[1960,158],[1970,279],[1980,1704],[1990,6610],[2000,12263],[2010,23087],[2020,31721],[2024,36239]];
+  const Wd=800,Hd=400,L=70,Rm=30,T=20,B=40, x=v=>L+(v-1960)/(2024-1960)*(Wd-L-Rm), y=v=>T+(1-v/40000)*(Hd-T-B);
+  let s="";
+  for(let g=0;g<=40000;g+=10000){s+=`<line x1="${L}" x2="${Wd-Rm}" y1="${y(g)}" y2="${y(g)}" stroke="rgba(35,28,24,.18)"/><text x="${L-10}" y="${y(g)+5}" text-anchor="end" font-family="Inter" font-size="14" fill="#6f5f52">${g?("$"+g/1000+" тис."):"0"}</text>`}
+  [1960,1970,1980,1990,2000,2010,2020].forEach(v=>s+=`<text x="${x(v)}" y="${Hd-12}" text-anchor="middle" font-family="Inter" font-size="14" fill="${K}">${v}</text>`);
+  const line=d.map((p,i)=>`${i?"L":"M"}${x(p[0]).toFixed(1)} ${y(p[1]).toFixed(1)}`).join(" ");
+  s+=`<g class="a" style="--d:1.2"><path d="${line} L${x(2024)} ${y(0)} L${x(1960)} ${y(0)}Z" fill="${R}" opacity=".16"/><path d="${line} L${x(2024)} ${y(0)} L${x(1960)} ${y(0)}Z" fill="url(#hatch)"/></g>`;
+  s+=`<path d="${line}" fill="none" stroke="${R}" stroke-width="4" class="draw" pathLength="1" style="--d:.3"/>`;
+  d.forEach((p,i)=>s+=`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="5" fill="${P}" stroke="${R}" stroke-width="2.5" class="a" style="--d:${.4+i*.15}"/>`);
+  s+=`<g class="a" style="--d:1.6"><text x="${x(1960)+8}" y="${y(158)-14}" font-family="Inter" font-weight="700" font-size="15" fill="${K}" paint-order="stroke" stroke="${P}" stroke-width="5">$158</text><text x="${x(2024)-6}" y="${y(36239)-16}" text-anchor="end" font-family="Inter" font-weight="700" font-size="15" fill="${R}" paint-order="stroke" stroke="${P}" stroke-width="5">$36 239</text><text x="${x(1997)}" y="${y(19000)}" text-anchor="middle" font-family="Noto Serif" font-style="italic" font-size="14" fill="#6f5f52">криза 1997</text></g>`;
+  $("gdp").innerHTML=s;
+}
+// 10: crash schematic + gold bars
+{
+  let s=`<line x1="20" y1="220" x2="540" y2="220" stroke="${K}" stroke-width="1.5"/><path d="M20 120 C 120 100 180 80 230 70 C 250 68 260 170 290 190 C 330 200 360 150 420 110 C 470 80 510 60 540 50" fill="none" stroke="${R}" stroke-width="5" class="draw" pathLength="1" style="--d:.3"/>`;
+  s+=`<g class="a" style="--d:1.1"><circle cx="290" cy="190" r="8" fill="${R}"/><text x="300" y="214" font-family="Inter" font-weight="700" font-size="14" fill="${K}">1997–98</text></g>`;
+  for(let i=0;i<3;i++) s+=`<g class="a" style="--d:${1.2+i*.12}"><g transform="translate(${60+i*40},${182-(i%2)*24})"><path d="M0 22 L8 0 L44 0 L52 22Z" fill="${G}" stroke="#8a6a20"/><path d="M10 4 L40 4" stroke="#f4dc95" stroke-width="2"/></g></g>`;
+  $("crash").innerHTML=s;
+}
+// 11: wafer
+{
+  let s=`<circle cx="170" cy="175" r="150" fill="#2b2320" stroke="${G}" stroke-width="3"/><circle cx="170" cy="175" r="142" fill="none" stroke="${G}" stroke-width="1" opacity=".5"/>`;
+  let k=0;for(let x=40;x<300;x+=26)for(let y=45;y<305;y+=26){if((x+13-170)**2+(y+13-175)**2<128**2){const hot=rnd()<.18;s+=`<rect x="${x}" y="${y}" width="22" height="22" fill="${hot?R:"#4a3a32"}" stroke="${G}" stroke-width=".6" class="a" style="--d:${(.3+k*.006).toFixed(3)}"/>`;k++}}
+  s+=`<path d="M150 25 L170 18 L190 25" stroke="${G}" stroke-width="3" fill="none"/>`;
+  $("wafer").innerHTML=s;
+}
+// 12: port with cranes and containers
+{
+  let s=`<path d="M0 220 q 30 -8 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0" fill="none" stroke="${K}" stroke-width="1.5"/><rect x="0" y="196" width="540" height="12" fill="${K}"/>`;
+  [[60,1],[200,1.15],[340,.95]].forEach(([x,sc],i)=>{s+=`<g class="a" style="--d:${.3+i*.2}"><g transform="translate(${x},196) scale(${sc})"><rect x="0" y="-150" width="8" height="150" fill="${R}"/><rect x="46" y="-150" width="8" height="150" fill="${R}"/><rect x="-30" y="-158" width="130" height="10" fill="${R}"/><line x1="70" y1="-148" x2="70" y2="-90" stroke="${K}"/><rect x="62" y="-90" width="18" height="10" fill="${G}"/><path d="M4 -150 L27 -190 L50 -150" fill="none" stroke="${R}" stroke-width="4"/></g></g>`});
+  const cols=[R,G,K,"#8c2420","#6f5f52"];
+  for(let i=0;i<18;i++){const x=20+(i%9)*56,y=170-Math.floor(i/9)*26;s+=`<rect x="${x}" y="${y}" width="52" height="24" fill="${cols[Math.floor(rnd()*5)]}" stroke="${P}" class="a" style="--d:${(.8+i*.04).toFixed(2)}"/>`}
+  s+=`<g class="a" style="--d:1.4"><g transform="translate(470,76)">${[0,1,2,3].map(i=>`<rect x="${i*14}" y="${-i*18}" width="12" height="${120+i*18}" fill="#3a2a24"/>`).join("")}</g></g>`;
+  $("port").innerHTML=s;
+}
+// 13: bars
+{
+  const rd=[["Корея",5.13,1],["Японія",3.44],["США",3.44],["Китай",2.69],["ЄС-27",2.13]];
+  const rb=[["Корея",1012,1],["Сінгапур",770,1],["Німеччина",429],["Японія",419],["США",295]];
+  const fmt=v=>String(v).replace(".",",");
+  $("rd").innerHTML=rd.map(([n,v,h],i)=>`<div class="br a${h?' hi':''}" style="--d:${.3+i*.1}"><span class="t">${n}</span><span><span class="b grow" style="width:${v/5.13*100}%;--d:${.4+i*.1}"></span></span><span class="v">${fmt(v)}%</span></div>`).join("");
+  $("rb").innerHTML=rb.map(([n,v,h],i)=>`<div class="br a${h?' hi':''}" style="--d:${.4+i*.1}"><span class="t">${n}</span><span><span class="b grow" style="width:${v/1012*100}%;--d:${.5+i*.1}"></span></span><span class="v">${v.toLocaleString("uk-UA")}</span></div>`).join("");
+}
+// 14: supply chain + TFR
+{
+  let s="";const n=[["Тайвань",40],["США",200],["Японія",360]];
+  n.forEach(([t,x],i)=>{s+=`<g class="a" style="--d:${.6+i*.2}"><rect x="${x}" y="40" width="80" height="44" fill="${i?K:R}"/><text x="${x+40}" y="67" text-anchor="middle" font-family="Inter" font-weight="700" font-size="13" fill="#f7ead0">${t}</text></g>`});
+  s+=`<path d="M120 62 L200 62 M280 62 L360 62" stroke="${G}" stroke-width="3" stroke-dasharray="6 5" class="draw" pathLength="1" style="--d:1"/><text x="240" y="112" text-anchor="middle" font-family="Noto Serif" font-style="italic" font-size="14" fill="#6f5f52">нові заводи TSMC</text>`;
+  $("chain").innerHTML=s;
+  const t=[["2023",0.72,1],["2025",0.80],["норма",2.1]];
+  $("tfr").innerHTML=`<div class="bars">`+t.map(([n,v,h],i)=>`<div class="br${h?' hi':''}"><span class="t">${n}</span><span><span class="b grow" style="width:${v/2.1*100}%;--d:${.7+i*.15};${i==2?'background:transparent;border:2px dashed #231c18':''}"></span></span><span class="v">${String(v).replace(".",",")}</span></div>`).join("")+`</div>`;
+}
+$("authors").innerHTML=NAMES.map(n=>n.full).join("<br>");
+
+/* ---------- scene poses ---------- */
+const POSE={
+  cover:{sp:[640,420,1,1],sr:[960,150,1],L:[0,0],birds:1},
+  cover2:{sp:[640,470,1.05,.9],sr:[300,140,.9],L:[0,40],birds:1},
+  up:{sp:[1060,560,.6,.0],sr:[1188,96,.36],L:[0,340],birds:.6},
+  mid:{sp:[1000,520,.75,.35],sr:[1150,120,.55],L:[0,270],birds:.8},
+  low:{sp:[1060,600,.5,.0],sr:[1196,92,.32],L:[0,400],birds:.5}
+};
+const slides=[...document.querySelectorAll(".s")], N=slides.length;
+const layers=[["L0",.25],["L1",.45],["L2",.7],["L3",1]];
+function scene(i){
+  const ps=POSE[slides[i].dataset.pose]||POSE.up, prog=i/(N-1);
+  $("sunP").style.transform=`translate(${ps.sp[0]}px,${ps.sp[1]}px) scale(${ps.sp[2]})`; $("sunP").style.opacity=ps.sp[3];
+  $("sunR").style.transform=`translate(${ps.sr[0]}px,${ps.sr[1]}px) scale(${ps.sr[2]})`;
+  layers.forEach(([id,f],k)=>{$(id).style.transform=`translate(${-prog*1500*f}px,${ps.L[1]*(0.55+k*.25)}px)`});
+  ["mist1","mist2"].forEach((id,k)=>{$(id).style.transition="opacity 1.5s, transform 1.5s";$(id).style.opacity=ps.L[1]>200?.0:1});
+  $("birds").style.opacity=ps.birds;
+  return ps;
+}
+
+/* ---------- deck engine ---------- */
+const stage=$("stage"), pnl=$("panel"), ctl=$("ctl");
+let cur=0, busy=false;
+function fit(){const side=pnl.classList.contains("open")&&innerWidth>=1000?pnl.offsetWidth:0;const avail=innerWidth-side;const k=Math.min((avail-24)/1280,(innerHeight-80)/720);stage.style.left=(avail/2)+"px";ctl.style.left=(avail/2)+"px";stage.style.transform=`translate(-50%,-50%) scale(${k})`}
+addEventListener("resize",fit); fit();
+const ROM=["I","II","III"];
+function go(i,first){
+  i=Math.max(0,Math.min(N-1,i)); if(i===cur&&!first) return;
+  const prev=slides[cur]; cur=i; const sl=slides[cur];
+  if(!first&&prev!==sl){prev.classList.remove("on");prev.classList.add("out");setTimeout(()=>prev.classList.remove("out"),600)}
+  const ps=scene(cur);
+  sl.style.setProperty("--cx",(ps.sr[0]/12.8)+"%"); sl.style.setProperty("--cy",(ps.sr[1]/7.2)+"%");
+  sl.classList.remove("on"); void sl.offsetWidth; sl.classList.add("on");
+  const w=$("wash"); w.style.left=ps.sr[0]+"px"; w.style.top=ps.sr[1]+"px"; w.classList.remove("go"); void w.offsetWidth; if(!first) w.classList.add("go");
+  const spk=SPEECH[cur].sp; $("chipN").textContent=ROM[spk]; $("chipT").textContent=NAMES[spk].full; $("chip").style.opacity=cur===0?0:1;
+  $("pg").textContent=$("cnt").textContent=`${cur+1} / ${N}`;
+  $("prog").style.width=`${(cur+1)/N*100}%`;
+  $("ptxt").innerHTML=`<div class="who"></div><p></p>`; document.querySelector("#ptxt .who").textContent=`Слайд ${cur+1} · ${ROM[spk]} · ${NAMES[spk].full}`; document.querySelector("#ptxt p").textContent=SPEECH[cur].t;
+  if(location.hash!==`#s${cur+1}`) history.replaceState(null,"",`#s${cur+1}`);
+}
+const tbtn=$("txt");
+const toggle=o=>{pnl.classList.toggle("open",o);tbtn.setAttribute("aria-expanded",String(pnl.classList.contains("open")));fit()};
+$("prev").onclick=()=>go(cur-1); $("next").onclick=()=>go(cur+1);
+tbtn.onclick=()=>toggle(!pnl.classList.contains("open")); $("pclose").onclick=()=>toggle(false);
+$("fs").onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}};
+addEventListener("keydown",e=>{if(["ArrowRight","PageDown"," "].includes(e.key)){e.preventDefault();go(cur+1)}else if(["ArrowLeft","PageUp"].includes(e.key)){e.preventDefault();go(cur-1)}else if(e.key==="t"||e.key==="е")toggle(!pnl.classList.contains("open"));else if(e.key==="Escape")toggle(false);else if(e.key==="Home")go(0);else if(e.key==="End")go(N-1)});
+let tx0=null; addEventListener("touchstart",e=>{tx0=e.touches[0].clientX},{passive:true});
+addEventListener("touchend",e=>{if(tx0==null)return;const dx=e.changedTouches[0].clientX-tx0;if(Math.abs(dx)>50&&!pnl.contains(e.target))go(cur+(dx<0?1:-1));tx0=null});
+const fromHash=()=>{const m=/^#s(\d+)$/.exec(location.hash);return m?+m[1]-1:0};
+addEventListener("hashchange",()=>{const n=fromHash();if(n!==cur)go(n)});
+cur=fromHash(); go(cur,true);
+}
+</script>
+</body>
+</html>
